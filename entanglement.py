@@ -68,4 +68,4 @@ plt.plot(T,Entanglement)
 plt.xlabel("Time")
 plt.ylabel("Entanglement")
 plt.title("Entanglement vs T")
-plt.show
+plt.savefig('Entanglement.png', format="PNG")
