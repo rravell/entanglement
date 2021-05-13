@@ -1,5 +1,5 @@
 #!/bin/bash
-#BATCH -J ent
+#SBATCH -J ent
 #SBATCH -p batch 
 #SBATCH -N 16
 #SBATCH --ntasks-per-node 24 
