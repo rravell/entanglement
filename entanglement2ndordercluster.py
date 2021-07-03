@@ -76,9 +76,9 @@ def complexintegral7(func, lim, **kwargs):
 
 func11 = lambda  w1,w2 : 4*math.pi*w1**2*4*math.pi*w2**2*np.sqrt(w1)*np.sqrt(w2)*(np.exp(-1j*w1*T[i])*np.exp(-1/2*((w1-wa)/a[l])**2-1/2*((w2-wa)/a[l])**2)*(np.exp((gamma+1j*wa)*T[i])*(-w1+w2)+np.exp(1j*(w2)*T[i])*(1j*gamma+w1-wa)+np.exp(1j*(w1)*T[i])*(-1j*gamma-w2+wa)))/(2*math.pi*(w1-w2)*(1j*gamma+w1-wa)*(1j*gamma+w2-wa)) if (w1-w2)!=0 else 0+0j
 
-func12 = lambda  w1,w2 : 4*math.pi*w1**2*4*math.pi*w2**2*np.sqrt(w1)*np.sqrt(w2)*(np.exp(-1j*2*a[l]*w1*T[i])*np.exp(-1/2*((w1-wa)/a[l])**2-1/2*((w2-wa)/a[l])**2)*(np.exp((gamma+1j*wa)*T[i])*(-w1+w2)+np.exp(1j*(w2)*T[i])*(1j*gamma+w1-wa)+np.exp(1j*(w1)*T[i])*(-1j*gamma-w2+wa)))/(2*math.pi*(w1-w2)*(1j*gamma+w1-wa)*(1j*gamma+w2-wa)) if (w1-w2)!=0 else 0+0j
+func12 = lambda  w1,w2 : 4*math.pi*w1**2*4*math.pi*w2**2*np.sqrt(w1)*np.sqrt(w2)*(np.exp(-1j*w1*T[i])*np.exp(-1/2*((w1-wa)/a[l])**2-1/2*((w2-wa)/a[l])**2)*(np.exp((gamma+1j*wa)*T[i])*(-w1+w2)+np.exp(1j*(w2)*T[i])*(1j*gamma+w1-wa)+np.exp(1j*(w1)*T[i])*(-1j*gamma-w2+wa)))/(2*math.pi*(w1-w2)*(1j*gamma+w1-wa)*(1j*gamma+w2-wa)) if (w1-w2)!=0 else 0+0j
 
-func13 = lambda  w1,w2 : 4*math.pi*w1**2*4*math.pi*w2**2*np.sqrt(w1)*np.sqrt(w2)*1j*1/math.pi*(np.exp(-1/2*((w1-wa)/a[l])**2-1/2*((w2-wa)/a[l])**2))*(np.exp(T[i]*(2*gamma+1j*(w1-w2)))/((2*1j*gamma-w1+w2)*(gamma-1j*(w2-wa)))-2*gamma/((w1-w2)*(-2*1j*gamma+w1-w2)*(-1j*gamma+w1-wa))+(1j*np.exp(1j*T[i]*(w1-w2)))/((w1-w2)*(-1j*gamma+w2-wa))+(2*gamma*np.exp(T[i]*(gamma+1j*(w1-wa))))/((gamma+1j*(w1-wa))*(gamma-1j*(w2-wa))*(-1j*gamma+w2-wa))) if (w1-w2)!=0 else 0+0j
+func13 = lambda  w1,w2 : 4*math.pi*w1**2*4*math.pi*w2**2*np.sqrt(w1)*np.sqrt(w2)*1j*1/math.pi*(np.exp(-1/2*((w1-wa)/a[l])**2-1/2*((w2-wa)/a[l])**2))*((np.exp(T[i]*(2*gamma+1j*(w1-w2))))/((2*1j*gamma-w1+w2)*(gamma-1j*(w2-wa)))-2*gamma/((w1-w2)*(-2*1j*gamma+w1-w2)*(-1j*gamma+w1-wa))+(1j*np.exp(1j*T[i]*(w1-w2)))/((w1-w2)*(-1j*gamma+w2-wa))+(2*gamma*np.exp(T[i]*(gamma+1j*(w1-wa))))/((gamma+1j*(w1-wa))*(gamma-1j*(w2-wa))*(-1j*gamma+w2-wa))) if (w1-w2)!=0 else 0+0j
 
 func21 = lambda  w: 4*math.pi*w**2*np.sqrt(w)*np.exp(-gamma*T[i])*np.exp(-1/2*((w-wa)/a[l])**2)*(np.exp(gamma*T[i])-np.exp(1j*T[i]*(w-wa)))/(np.sqrt(2*math.pi)*(gamma-1j*(w-wa)))
 
@@ -89,7 +89,7 @@ np.sqrt(w1*w2*w3)*(np.exp(T[i]*(gamma+1j*(w1+w2-wa)))*(w1-w2)+np.exp(1j*T[i]*w2)
 
 func23 = lambda  w1 : 4*math.pi*w1**2*(np.exp(-((w1-wa)**2/(2*a[l]**2))-1j*T[i]*wa)*np.sqrt(2/math.pi)*np.sqrt(w1)*(-np.exp(1j*T[i]*wa)*gamma+np.exp(1j*T[i]*w1)*(gamma*math.cosh(gamma*T[i])-1j*(w1-wa)*math.sinh(gamma*T[i])))/((gamma**2+(w1-wa)**2)))
 
-func31 = lambda  w1 : 4*math.pi*w1**2*(np.exp(-T[i]*(gamma+1j*(w1-wa))-(w1-wa)**2/(2*a[l]**2))*(-1+np.exp(T[i]*(gamma+1j*(w1-wa))))*np.sqrt(w1))/(np.sqrt(2/math.pi)*(gamma+1j*(w1-wa)))
+func31 = lambda  w1 : 4*math.pi*w1**2*(np.exp(-T[i]*(gamma+1j*(w1-wa))-(w1-wa)**2/(2*a[l]**2))*(-1+np.exp(T[i]*(gamma+1j*(w1-wa))))*np.sqrt(w1))/(np.sqrt(2*math.pi)*(gamma+1j*(w1-wa)))
 
 
 NoP = lambda w1 : 4*math.pi*w1**2*np.exp(-((w1-wa)/a[l])**2)
@@ -97,7 +97,7 @@ NoP = lambda w1 : 4*math.pi*w1**2*np.exp(-((w1-wa)/a[l])**2)
 wa=1
 gamma=0.05
 
-T=np.linspace(0,5,100)
+T=np.linspace(0,20,100)
 
 a=np.linspace(0.001, 0.1, 5)
 NumberOfPhotons=np.zeros(len(a),dtype=complex)
