@@ -99,7 +99,7 @@ gamma=0.05
 
 T=np.linspace(0,20,100)
 
-a=np.linspace(0.001, 0.1, 5)
+a=np.linspace(0.001, 0.1, 7)
 NumberOfPhotons=np.zeros(len(a),dtype=complex)
 
 for l in range(len(a)):
