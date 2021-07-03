@@ -97,25 +97,25 @@ NoP = lambda w1 : 4*math.pi*w1**2*np.exp(-((w1-wa)/a[l])**2)
 wa=1
 gamma=0.05
 
-T=np.linspace(0,20,100)
+T=np.linspace(0,20,30)
 
-a=np.linspace(0.001, 0.1, 7)
+a=np.linspace(0.001, 0.1, 10)
 NumberOfPhotons=np.zeros(len(a),dtype=complex)
 
 for l in range(len(a)):
-  NumberOfPhotons[l]=1/((np.sqrt(2*math.pi))**2)*complexintegral1(NoP,[[0,20]])
+  NumberOfPhotons[l]=1/((np.sqrt(2*math.pi))**2)*complexintegral1(NoP,[[0,np.inf]])
   Entanglement=np.zeros(len(T))
   rho=np.zeros((2,2),dtype=complex)
   for i in range(len(T)):
-    rho11=np.exp(-2*gamma*T[i])-2*np.exp(-2*gamma*T[i])*np.real(complexintegral2(func11, [[0,20],[0,20]]))+\
-    np.exp(-2*gamma*T[i])*np.absolute(complexintegral2(func12, [[0,20],[0,20]]))**2+\
-    np.exp(-2*gamma*T[i])*np.real(complexintegral2(func13,[[0,20],[0,20]]))
+    rho11=np.exp(-2*gamma*T[i])-2*np.exp(-2*gamma*T[i])*np.real(complexintegral2(func11, [[0,np.inf],[0,np.inf]]))+\
+    np.exp(-2*gamma*T[i])*np.absolute(complexintegral2(func12, [[0,np.inf],[0,np.inf]]))**2+\
+    np.exp(-2*gamma*T[i])*np.real(complexintegral2(func13,[[0,np.inf],[0,np.inf]]))
 
-    rho12=-1j*np.exp(-gamma*T[i])*complexintegral1(func21,[[0,20]])+\
-    1j*np.exp(-gamma*T[i])*complexintegral3(func22,[[0,20],[0,20],[0,20]])+\
-    1j*np.exp(-gamma*T[i])*np.real(complexintegral1(func23,[[0,20]]))
+    rho12=-1j*np.exp(-gamma*T[i])*complexintegral1(func21,[[0,np.inf]])+\
+    1j*np.exp(-gamma*T[i])*complexintegral3(func22,[[0,np.inf],[0,np.inf],[0,np.inf]])+\
+    1j*np.exp(-gamma*T[i])*np.real(complexintegral1(func23,[[0,np.inf]]))
 
-    rho22=np.absolute(complexintegral1(func31,[[0,20]]))**2+1-np.exp(-2*gamma*T[i])
+    rho22=np.absolute(complexintegral1(func31,[[0,np.inf]]))**2+1-np.exp(-2*gamma*T[i])
   
 
     rho[0,0]=rho11
