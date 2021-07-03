@@ -131,6 +131,6 @@ for l in range(len(a)):
 
 plt.xlabel("Time")
 plt.ylabel("Entanglement")
-plt.legend(loc='upper center', bbox_to_anchor=(1.45, 0.8), shadow=True, ncol=1)
+plt.legend(loc='upper center', bbox_to_anchor=(1.0, 0.8), shadow=True, ncol=1)
 plt.title("Entanglement vs time") 
 plt.savefig('Entanglement2ndOrder.png', format="PNG")
