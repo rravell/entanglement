@@ -87,9 +87,9 @@ func22 = lambda  w1,w2,w3 : 4*math.pi*w1**2*4*math.pi*w2**2*4*math.pi*w3**2*np.e
 np.sqrt(w1*w2*w3)*(np.exp(T[i]*(gamma+1j*(w1+w2-wa)))*(w1-w2)+np.exp(1j*T[i]*w2)*\
                    (-1j*gamma+w2-wa)+np.exp(1j*T[i]*w1)*(1j*gamma-w1+wa))/(2*np.sqrt(2)*np.sqrt(math.pi)*(math.pi)*(w1-w2)*(gamma-1j*(w3-wa))*(-1j*gamma+w1-wa)*(-1j*gamma+w2-wa)) if (w1-w2)!=0 else 0+0j
 
-func23 = lambda  w1 : 4*math.pi*w1**2*(np.exp(-((w1-wa)**2/(2*a[l]**2))-1j*T[i]*wa)*np.sqrt(2/math.pi)*np.sqrt(w1)*(-np.exp(1j*T[i]*wa)*gamma+np.exp(1j*T[i]*w1)*(gamma*math.cosh(gamma*T[i])-1j*(w1-wa)*math.sinh(gamma*T[i])))/((gamma**2+(w1-wa)**2)))
+func23 = lambda  w1 : 4*math.pi*w1**2*(np.exp(-((w1-wa)**2/(2*a[l]**2))-1j*T[i]*wa)*np.sqrt(2/math.pi)*np.sqrt(w1)*(-np.exp(1j*T[i]*wa)*gamma+np.exp(1j*T[i]*w1)*(gamma*math.cosh(gamma*T[i])-1j*(w1-wa)*math.sinh(gamma*T[i])))/((gamma**2+(w1-wa)**2))) if (w1-wa)!=0 else 0+0j
 
-func31 = lambda  w1 : 4*math.pi*w1**2*(np.exp(-T[i]*(gamma+1j*(w1-wa))-(w1-wa)**2/(2*a[l]**2))*(-1+np.exp(T[i]*(gamma+1j*(w1-wa))))*np.sqrt(w1))/(np.sqrt(2*math.pi)*(gamma+1j*(w1-wa)))
+func31 = lambda  w1 : 4*math.pi*w1**2*(np.exp(-T[i]*(gamma+1j*(w1-wa))-(w1-wa)**2/(2*a[l]**2))*(-1+np.exp(T[i]*(gamma+1j*(w1-wa))))*np.sqrt(w1))/(np.sqrt(2*math.pi)*(gamma+1j*(w1-wa))) if (w1-wa)!=0 else 0+0j
 
 
 NoP = lambda w1 : 4*math.pi*w1**2*np.exp(-((w1-wa)/a[l])**2)
@@ -97,7 +97,7 @@ NoP = lambda w1 : 4*math.pi*w1**2*np.exp(-((w1-wa)/a[l])**2)
 wa=1
 gamma=0.05
 
-T=np.linspace(0,20,30)
+T=np.linspace(0,20,50)
 
 a=np.linspace(0.001, 0.1, 10)
 NumberOfPhotons=np.zeros(len(a),dtype=complex)
